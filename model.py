@@ -1,16 +1,5 @@
 from google.appengine.ext import db
-from datetime import datetime
-
-'''
-class Categoria(db.Model):
-    descricao = db.StringProperty() #required=True)
-
-class Coisa(db.Model):
-    nome = db.StringProperty()
-    descricao = db.StringProperty()
-    preco = db.FloatProperty()
-    categoria = db.ReferenceProperty(Categoria)
-'''
+#from datetime import datetime
 
 class User(db.Model):
     name = db.StringProperty(required = True)
@@ -22,13 +11,14 @@ class User(db.Model):
 
 class Tag(db.Model):
     name = db.StringProperty(required = True)
+    lower = db.StringProperty(required = True)
     user = db.ReferenceProperty(User, collection_name = 'tags')
 
 class Bookmark(db.Model):
     title = db.StringProperty(required = True)
     link = db.StringProperty(required = True)
     user = db.ReferenceProperty(User, collection_name = 'bookmarks')
-    
+
 class BookmarkTag(db.Model):
     bookmark = db.ReferenceProperty(Bookmark, required = True, collection_name = 'bookmarks')
-    tag = db.ReferenceProperty(Tag, required = True, collection_name = 'tags')    
+    tag = db.ReferenceProperty(Tag, required = True, collection_name = 'tags')

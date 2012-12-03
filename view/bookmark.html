@@ -1,0 +1,39 @@
+<html>
+
+    <head>
+        <title>Bookmarks</title>
+    </head>
+
+    <body>
+        <h1>Bookmarks (One Bookmark)</h1>
+        <!-- ---------- -->
+        <hr width="100%" size="1">
+
+        <b>User: {{ username }}</b> |
+        <a href="#">My Bookmarks</a> |
+        <a href="#">Popular Bookmarks</a> |
+        <a href="/logout">Log Out</a>
+
+        <br><br>
+
+        errors: >{{ errors }}< <br>
+        fields: >{{ fields }}< <br>
+        bookmark: >{{ bookmark.title }}< <br>
+        tagnames: >{{ tagnames }}<
+
+        <br><br>
+
+        <b>New Bookmark</b>
+
+        <form method="post" action="/home">
+            <input type="text" name="title" placeholder="Title"><br>
+            <input type="text" name="link" placeholder="Link"><br>
+            <input type="text" name="tags" placeholder="Tags"><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <br>
+
+    </body>
+
+</html>
