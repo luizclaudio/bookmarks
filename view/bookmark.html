@@ -10,6 +10,7 @@
         <hr width="100%" size="1">
 
         <b>User: {{ username }}</b> |
+        <a href="/home">Home</a> |
         <a href="#">My Bookmarks</a> |
         <a href="#">Popular Bookmarks</a> |
         <a href="/logout">Log Out</a>
@@ -18,17 +19,18 @@
 
         errors: >{{ errors }}< <br>
         fields: >{{ fields }}< <br>
-        bookmark: >{{ bookmark.title }}< <br>
+        bookmark: >{{ bookmark.key }}< <br>
         tagnames: >{{ tagnames }}<
 
         <br><br>
 
         <b>New Bookmark</b>
 
-        <form method="post" action="/home">
-            <input type="text" name="title" placeholder="Title"><br>
-            <input type="text" name="link" placeholder="Link"><br>
-            <input type="text" name="tags" placeholder="Tags"><br>
+        <form method="post" action="/bookmark">
+            <input type="hidden" name="key" value="{{ bookmark.key }}"><br>
+            <input type="text" name="title" placeholder="Title" value="{{ bookmark.title }}"><br>
+            <input type="text" name="link" placeholder="Link" value="{{ bookmark.link }}"><br>
+            <input type="text" name="tags" placeholder="Tags" value="{{ tagnames }}"><br>
             <input type="submit" value="Submit">
         </form>
 

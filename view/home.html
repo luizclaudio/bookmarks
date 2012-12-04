@@ -10,6 +10,7 @@
         <hr width="100%" size="1">
 
         <b>User: {{ username }}</b> |
+        <a href="/home">Home</a> |
         <a href="#">My Bookmarks</a> |
         <a href="#">Popular Bookmarks</a> |
         <a href="/bookmark">New Bookmark</a> |
@@ -17,27 +18,11 @@
 
         <br><br>
 
-        errors: >{{ errors }}< <br>
-        fields: >{{ fields }}<
-
-        <br><br>
-
-        <b>New Bookmark</b>
-
-        <form method="post" action="/home">
-            <input type="text" name="bmarktitle" placeholder="Title"><br>
-            <input type="text" name="bmarklink" placeholder="Link"><br>
-            <input type="text" name="bmarktags" placeholder="Tags"><br>
-            <input type="submit" value="Submit">
-        </form>
-
-        <br>
-
         <b>My Bookmarks</b>
 
         <ul>
         {% for bmk in bookmarks %}
-            <li>{{ bmk.title }}</li>
+            <li><a href="/bookmark/{{ bmk.key }}">{{ bmk.title }}</a></li>
         {% endfor %}
         </ul>
 
